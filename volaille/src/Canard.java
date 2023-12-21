@@ -5,18 +5,34 @@ class Canard extends Volaille{
         super(p,i);
     }
 
+    /**
+     * poids du canard
+     * @return
+     */
     public double getPoidsCanard() {
         return poidsCanard;
     }
 
+    /**
+     * poids du canard
+     * @param poidsCanard
+     */
     public void setPoidsCanard(double poidsCanard) {
         this.poidsCanard = poidsCanard;
     }
 
+    /**
+     * getter prix du canard par kilo
+     * @return
+     */
     public double getPrixCanard() {
         return prixCanard;
     }
 
+    /**
+     * setter prix du canard par kilo
+     * @param prixCanard
+     */
     public void setPrixCanard(double prixCanard) {
         this.prixCanard = prixCanard;
     }
