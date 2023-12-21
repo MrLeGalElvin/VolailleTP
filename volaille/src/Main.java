@@ -1,7 +1,18 @@
+import java.util.Scanner;
+
 public class Main{
     public static void main(String[] args){
         //creation elevage
         Elevage elevage1 = new Elevage();
+        Scanner scanner = new Scanner(System.in);
+        //Definir prix poids abattage
+        System.out.println("Veuillez entrer le prix d'abattage des Canards:");
+        double prixC=scanner.nextDouble();
+        elevage1.setPrixCanard(prixC);
+        System.out.println("Veuillez entrer le prix d'abattage des Poulets:");
+        double prixP=scanner.nextDouble();
+        elevage1.setPrixPoulet(prixP);
+        scanner.close();
         //Ajout Volaille
         for (int i=0; i<12; i++){
             elevage1.ajouter(new Poulet(0.250,1+i));

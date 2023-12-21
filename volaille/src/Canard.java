@@ -1,6 +1,5 @@
 class Canard extends Volaille{
     public double poidsCanard = 1;
-    public double prixCanard = 5;
     Canard(double p, int i){
         super(p,i);
     }
@@ -13,20 +12,12 @@ class Canard extends Volaille{
         this.poidsCanard = poidsCanard;
     }
 
-    public double getPrixCanard() {
-        return prixCanard;
-    }
-
-    public void setPrixCanard(double prixCanard) {
-        this.prixCanard = prixCanard;
-    }
-
     /**
      * Renvoie le prix du canard en multipliant sont poid par son prix au kilos
      * @return
      */
     double prix(){
-        return poids * this.prixCanard;
+        return poids * Elevage.getPrixCanard();
     }
     /**
      * Renvoie True si le canard est assez gros, false sinon

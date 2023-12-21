@@ -2,6 +2,8 @@
 class Elevage{
     //Tableau contenant les différentes volailles
 
+    private static double prixPoulet;
+    private static double prixCanard;
     Volaille[] tab = new Volaille[100];
     //Compteur nombre de bête
     int nbBetes = 0;
@@ -81,6 +83,28 @@ class Elevage{
                     tab[i].poids + " " +
                     tab[i].prix());
         }
+    }
+    /**
+     *  getter prix du poulet au kilo
+     * @return prix du poulet au kilo
+     */
+    public static double getPrixPoulet() {
+        return prixPoulet;
+    }
+
+    /**
+     * setter prix du poulet au kilo
+     * @param prixP
+     */
+    public void setPrixPoulet(double prixP) {
+        prixPoulet = prixP;
+    }
+    public static double getPrixCanard() {
+        return prixCanard;
+    }
+
+    public void setPrixCanard(double prixC) {
+        prixCanard = prixC;
     }
 }
 

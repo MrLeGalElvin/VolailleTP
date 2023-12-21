@@ -2,7 +2,7 @@
 public class Poulet extends Volaille{
     // variable contenant le poids du Poulet
     private double poidsPoulet = 1;
-    private double prixPoulet = 12;
+
 
     // Constructeur referant à sa classe mère : Volaille
     Poulet(double p, int i){
@@ -25,28 +25,13 @@ public class Poulet extends Volaille{
         this.poidsPoulet = poidsPoulet;
     }
 
-    /**
-     *  getter prix du poulet au kilo
-     * @return prix du poulet au kilo
-     */
-    public double getPrixPoulet() {
-        return this.prixPoulet;
-    }
-
-    /**
-     * setter prix du poulet au kilo
-     * @param prixPoulet
-     */
-    public void setPrixPoulet(double prixPoulet) {
-        this.prixPoulet = prixPoulet;
-    }
 
     /**
      * Récupère le prix du poulet (poids X pris par kilo)
      * @return prix total
      */
     double prix(){
-        return poids * this.prixPoulet;
+        return poids * Elevage.getPrixPoulet();
     }
 
     /**
