@@ -2,6 +2,7 @@
 public class Poulet extends Volaille{
     // variable contenant le poids du Poulet
     static double poidsPoulet = 1;
+    static double prixPoulet = 1;
 
     // Constructeur referant à sa classe mère : Volaille
     Poulet(double p, int i){
@@ -9,11 +10,35 @@ public class Poulet extends Volaille{
     }
 
     /**
-     * Change la variable du poids du poulet
-     * @param x : nouveau poids du poulet
+     * getter poids du Poulet
+     * @return poids du Poulet
      */
-    static void changePoidsPoulet(double x){
-        poidsPoulet = x;
+    public static double getPoidsPoulet() {
+        return poidsPoulet;
+    }
+
+    /**
+     * setter poids du poulet
+     * @param poidsPoulet
+     */
+    public static void setPoidsPoulet(double poidsPoulet) {
+        Poulet.poidsPoulet = poidsPoulet;
+    }
+
+    /**
+     *  getter prix du poulet au kilo
+     * @return prix du poulet au kilo
+     */
+    public static double getPrixPoulet() {
+        return prixPoulet;
+    }
+
+    /**
+     * setter prix du poulet au kilo
+     * @param prixPoulet
+     */
+    public static void setPrixPoulet(double prixPoulet) {
+        Poulet.prixPoulet = prixPoulet;
     }
 
     /**
