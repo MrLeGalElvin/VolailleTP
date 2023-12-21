@@ -60,7 +60,6 @@ class Elevage{
         int nb = 0;
         int i = 0;
         while (i < nbBetes){
-            Terminal.ecrireChar('+');
             if (tab[i].assezGrosse()){
                 res[nb] = tab[i];
                 nb++;

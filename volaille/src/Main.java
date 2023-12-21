@@ -12,7 +12,6 @@ public class Main{
         System.out.println("Veuillez entrer le prix d'abattage des Poulets:");
         double prixP=scanner.nextDouble();
         elevage1.setPrixPoulet(prixP);
-        scanner.close();
         //Ajout Volaille
         for (int i=0; i<12; i++){
             elevage1.ajouter(new Poulet(0.250,1+i));
@@ -24,15 +23,34 @@ public class Main{
             elevage1.changePoids(7+i,1.3);
             elevage1.changePoids(16+i,1.55);
         }
-        //Verifie la liste des animaux
-        elevage1.ecrire();
-        Terminal.ecrireString("Prix des animaux a abattre: ");
-        Terminal.ecrireDoubleln(elevage1.evaluerBetesAAbattre());
-        elevage1.envoyerALAbattoir();
-        //Verifie la liste des animaux après l'abattage
-        elevage1.ecrire();
-        //verifie qu'il n'y a bien plus d'animaux à abattre
-        Terminal.ecrireString("Prix des animaux a abattre: ");
-        Terminal.ecrireDoubleln(elevage1.evaluerBetesAAbattre());
+        // Menu
+        int choix;
+        do {
+            System.out.println("1. Afficher toutes les volailles");
+            System.out.println("2. Afficher le prix total des volailles à abattre");
+            System.out.println("3. Envoyer les bêtes à l'abattoir");
+            System.out.println("4. Quitter le menu");
+            System.out.println("Veuillez entrer votre choix :");
+            choix = scanner.nextInt();
+
+            switch (choix) {
+                case 1:
+                    elevage1.ecrire();
+                    break;
+                case 2:
+                    Terminal.ecrireDoubleln(elevage1.evaluerBetesAAbattre());
+                    break;
+                case 3:
+                    elevage1.envoyerALAbattoir();
+                    break;
+                case 4:
+                    System.out.println("Au revoir !");
+                    break;
+                default:
+                    System.out.println("Choix invalide. Veuillez réessayer.");
+            }
+        } while (choix != 4);
+
+        scanner.close();
     }
 }
