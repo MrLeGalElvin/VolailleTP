@@ -13,7 +13,7 @@ public class Poulet extends Volaille{
      * getter poids du Poulet
      * @return poids du Poulet
      */
-    public static double getPoidsPoulet() {
+    public double getPoidsPoulet() {
         return this.poidsPoulet;
     }
 
