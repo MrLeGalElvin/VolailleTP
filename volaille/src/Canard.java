@@ -1,28 +1,38 @@
 class Canard extends Volaille{
-    static double poidsCanard = 1;
-    static double prixCanard = 5;
+    public double poidsCanard = 1;
+    public double prixCanard = 5;
     Canard(double p, int i){
         super(p,i);
     }
-    /**
-     * Change le poids du canard pour l'abattage
-     * @param x : le poids du canard
-     */
-    static void changePoidsAbattage(double x){
-        poidsCanard = x;
+
+    public double getPoidsCanard() {
+        return poidsCanard;
     }
+
+    public void setPoidsCanard(double poidsCanard) {
+        this.poidsCanard = poidsCanard;
+    }
+
+    public double getPrixCanard() {
+        return prixCanard;
+    }
+
+    public void setPrixCanard(double prixCanard) {
+        this.prixCanard = prixCanard;
+    }
+
     /**
      * Renvoie le prix du canard en multipliant sont poid par son prix au kilos
      * @return
      */
     double prix(){
-        return poids * Constante.prixCanard;
+        return poids * this.prixCanard;
     }
     /**
      * Renvoie True si le canard est assez gros, false sinon
      */
     boolean assezGrosse(){
-        if (poids >= poidsCanard) {
+        if (poids >= this.poidsCanard) {
             return true;
         }
         return false;
