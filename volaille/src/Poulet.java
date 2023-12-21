@@ -1,20 +1,19 @@
 class Poulet extends Volaille{
-    static double prixAuKilo = 1.0;
-    static double poidsAbattage = 1.2;
+    static double poidsPoulet = 1;
     Poulet(double p, int i){
         super(p,i);
     }
-    static void changePrix(double x){
-        prixAuKilo = x;
-    }
-    static void changePoidsAbattage(double x){
-        poidsAbattage = x;
+    static void changePoidsPoulet(double x){
+        poidsPoulet = x;
     }
     double prix(){
-        return poids *prixAuKilo;
+        return poids * Constante.prixPoulet;
     }
     boolean assezGrosse(){
-        return poids >= poidsAbattage;
+        if (poids >= poidsPoulet) {
+            return true;
+        }
+        return false;
     }
 }
 
