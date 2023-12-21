@@ -2,7 +2,7 @@
 public class Poulet extends Volaille{
     // variable contenant le poids du Poulet
     static double poidsPoulet = 1;
-    static double prixPoulet = 1;
+    static double prixPoulet = 12;
 
     // Constructeur referant à sa classe mère : Volaille
     Poulet(double p, int i){

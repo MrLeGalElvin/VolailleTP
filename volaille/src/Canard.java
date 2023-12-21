@@ -1,5 +1,6 @@
 class Canard extends Volaille{
     static double poidsCanard = 1;
+    static double prixCanard = 5;
     Canard(double p, int i){
         super(p,i);
     }
