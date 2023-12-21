@@ -3,7 +3,7 @@ class Canard extends Volaille{
     Canard(double p, int i){
         super(p,i);
     }
-    static void changePoidsAbattage(double x){
+    static void changePoidsCanard(double x){
         poidsCanard = x;
     }
     double prix(){
