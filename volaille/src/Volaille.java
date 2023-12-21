@@ -1,4 +1,4 @@
-class Volaille{
+public class Volaille{
     double poids;
     int identite;
     Volaille(double p, int i){

@@ -1,4 +1,4 @@
-class Elevage{
+public class Elevage{
     Volaille[] tab = new Volaille[100];
     int nbBetes = 0;
     void ajouter(Volaille v){

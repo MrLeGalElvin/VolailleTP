@@ -1,5 +1,5 @@
 // Classe initialisant le Poulet héritant de la classe volaille
-class Poulet extends Volaille{
+public class Poulet extends Volaille{
     // variable contenant le poids du Poulet
     static double poidsPoulet = 1;
 

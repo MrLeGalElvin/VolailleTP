@@ -1,4 +1,4 @@
-class Canard extends Volaille{
+public class Canard extends Volaille{
     public double poidsCanard = 1;
 
     Canard(double p, int i){
@@ -8,7 +8,6 @@ class Canard extends Volaille{
     void changePoidsCanard(double x){
         this.poidsCanard = x;
     }
-
 
     double prix(){
         return poids * Constante.prixCanard;
