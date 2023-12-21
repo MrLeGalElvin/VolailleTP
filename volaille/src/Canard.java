@@ -1,19 +1,18 @@
 class Canard extends Volaille{
-    static double prixAuKilo = 1.2;
-    static double poidsAbattage = 1.5;
+    static double poidsCanard = 1;
     Canard(double p, int i){
         super(p,i);
     }
-    static void changePrix(double x){
-        prixAuKilo = x;
-    }
     static void changePoidsAbattage(double x){
-        poidsAbattage = x;
+        poidsCanard = x;
     }
     double prix(){
-        return poids *prixAuKilo;
+        return poids * Constante.prixCanard;
     }
     boolean assezGrosse(){
-        return poids >= poidsAbattage;
+        if (poids >= poidsCanard) {
+            return true;
+        }
+        return false;
     }
 }
