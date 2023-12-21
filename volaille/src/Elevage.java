@@ -1,5 +1,7 @@
+
 class Elevage{
     //Tableau contenant les différentes volailles
+
     Volaille[] tab = new Volaille[100];
     //Compteur nombre de bête
     int nbBetes = 0;
@@ -56,7 +58,7 @@ class Elevage{
         int nb = 0;
         int i = 0;
         while (i < nbBetes){
-            Terminal.ecrireChar(’+’);
+            Terminal.ecrireChar('+');
             if (tab[i].assezGrosse()){
                 res[nb] = tab[i];
                 nb++;
