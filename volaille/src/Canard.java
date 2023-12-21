@@ -12,6 +12,7 @@ class Canard extends Volaille{
     }
     /**
      * Renvoie le prix du canard en multipliant sont poid par son prix au kilos
+     * @return
      */
     double prix(){
         return poids * Constante.prixCanard;
