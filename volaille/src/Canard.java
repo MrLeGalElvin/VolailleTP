@@ -1,11 +1,15 @@
 class Canard extends Volaille{
-    static double poidsCanard = 1;
+    public double poidsCanard = 1;
+
     Canard(double p, int i){
         super(p,i);
     }
-    static void changePoidsCanard(double x){
-        poidsCanard = x;
+
+    void changePoidsCanard(double x){
+        this.poidsCanard = x;
     }
+
+
     double prix(){
         return poids * Constante.prixCanard;
     }
