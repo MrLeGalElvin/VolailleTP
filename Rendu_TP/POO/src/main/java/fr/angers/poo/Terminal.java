@@ -1,3 +1,5 @@
+package fr.angers.poo;
+
 import java.io.*;
 import java.util.*;
 
