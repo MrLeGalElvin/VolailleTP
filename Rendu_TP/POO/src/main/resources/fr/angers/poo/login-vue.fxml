@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0"  xmlns:fx="http://javafx.com/fxml" fx:controller="fr.angers.poo.LoginController">
+    <children>
+        <Label layoutX="150.0" layoutY="61.0" text="Page de Connexion" />
+        <TextField fx:id="usernameField" layoutX="150.0" layoutY="108.0" promptText="Nom d'utilisateur" />
+        <PasswordField fx:id="passwordField" layoutX="150.0" layoutY="149.0" promptText="Mot de passe" />
+        <Button fx:id="loginButton" layoutX="180.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleLogin" text="Se Connecter" />
+    </children>
+</AnchorPane>
