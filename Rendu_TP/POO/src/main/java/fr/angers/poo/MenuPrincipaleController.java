@@ -87,16 +87,13 @@ public class MenuPrincipaleController {
     private void afficherVolaille() {
         String type = choixAff.getValue();
         boolean enDessous = enDessousCheckBox.isSelected();
-
+        
     }
 
     @FXML
     private void prixModif() {
         String type = choixPrix.getValue();
         double prixKg = Double.parseDouble(prixKgField.getText());
-
-        // Your logic to handle prix/kg modification based on the selected type and entered price
-        System.out.println("Type: " + type + ", Prix par kg: " + prixKg);
         if (type == "Poulet") {
             this.elevage.setPrixPoulet(prixKg);
         } else {
@@ -108,9 +105,11 @@ public class MenuPrincipaleController {
     private void validerPoidsAbattage() {
         String type = choixAbattage.getValue();
         double poidsAbattage = Double.parseDouble(poidsAbattageField.getText());
-
-        // Your logic to handle validation based on the selected type and entered poids d'abattage
-        System.out.println("Type: " + type + ", Poids d'abattage: " + poidsAbattage);
+        if (type == "Poulet") {
+            this.elevage.setPoidsPoulet(poidsAbattage);
+        } else {
+            this.elevage.setPrixCanard(poidsAbattage);
+        }
     }
 
 }

@@ -13,7 +13,7 @@ public class Volaille {
     double prix(){
         return 0;
     }
-    boolean assezGrosse(){
+    boolean assezGrosse(double poids){
         return false;
     }
 }

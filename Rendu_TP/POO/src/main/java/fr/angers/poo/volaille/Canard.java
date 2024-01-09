@@ -22,7 +22,7 @@ public class Canard extends Volaille {
     }
 
     @Override
-    boolean assezGrosse() {
+    boolean assezGrosse(double poids) {
         return poids >= poidsCanard;
     }
 }

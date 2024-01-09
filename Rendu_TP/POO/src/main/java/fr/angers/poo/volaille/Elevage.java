@@ -3,6 +3,25 @@ package fr.angers.poo.volaille;
 public class Elevage {
     private static double prixPoulet;
     private static double prixCanard;
+    private static double poidsPoulet;
+    private static double poidsCanard;
+
+    public static double getPoidsPoulet() {
+        return poidsPoulet;
+    }
+
+    public static void setPoidsPoulet(double poidsPoulet) {
+        Elevage.poidsPoulet = poidsPoulet;
+    }
+
+    public static double getPoidsCanard() {
+        return poidsCanard;
+    }
+
+    public static void setPoidsCanard(double poidsCanard) {
+        Elevage.poidsCanard = poidsCanard;
+    }
+
     Volaille[] tab = new Volaille[100];
     //Compteur nombre de bête
     int nbBetes = 0;
@@ -44,7 +63,13 @@ public class Elevage {
         double res = 0;
         for
         (int i=0; i<nbBetes; i++){
-            if (tab[i].assezGrosse()){
+            double poids;
+            if (tab[i] instanceof Canard){
+                poids = this.poidsCanard;
+            } else {
+                poids = this.poidsPoulet;
+            }
+            if (tab[i].assezGrosse(poids)){
                 res = res+tab[i].prix();
             }
         }
@@ -59,7 +84,13 @@ public class Elevage {
         int nb = 0;
         int i = 0;
         while (i < nbBetes){
-            if (tab[i].assezGrosse()){
+            double poids;
+            if (tab[i] instanceof Canard){
+                poids = this.poidsCanard;
+            } else {
+                poids = this.poidsPoulet;
+            }
+            if (tab[i].assezGrosse(poids)){
                 res[nb] = tab[i];
                 nb++;
                 tab[i]=tab[nbBetes-1];
