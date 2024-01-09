@@ -87,7 +87,7 @@ public class MenuPrincipaleController {
     private void afficherVolaille() {
         String type = choixAff.getValue();
         boolean enDessous = enDessousCheckBox.isSelected();
-        
+
     }
 
     @FXML
