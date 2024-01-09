@@ -13,6 +13,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
+/**
+ * Contrôleur pour la gestion du menu principal de l'application.
+ */
 
 public class MenuPrincipaleController {
 
@@ -68,7 +71,9 @@ public class MenuPrincipaleController {
         prixSection.visibleProperty().bind(choixAction.valueProperty().isEqualTo("Modifier Prix/kg"));
         poidsAbattageSection.visibleProperty().bind(choixAction.valueProperty().isEqualTo("Modifier Poids Abattage"));
     }
-
+    /**
+     * Méthode appelée lors de l'ajout de volailles.
+     */
     @FXML
     private void ajouterVolaille() {
         String type = choixAjout.getValue().toString();
@@ -89,7 +94,9 @@ public class MenuPrincipaleController {
             }
         }
     }
-
+    /**
+     * Méthode appelée pour afficher les informations sur les volailles.
+     */
     @FXML
     private void afficherVolaille() {
         TableView<Volaille> tableView = new TableView<>();
@@ -124,7 +131,9 @@ public class MenuPrincipaleController {
         }
 
     }
-
+    /**
+     * Méthode appelée pour modifier le prix par kilogramme des volailles.
+     */
     @FXML
     private void prixModif() {
         String type = choixPrix.getValue();
@@ -135,7 +144,9 @@ public class MenuPrincipaleController {
             this.elevage.setPrixCanard(prixKg);
         }
     }
-
+    /**
+     * Méthode appelée pour valider le poids d'abattage des volailles.
+     */
     @FXML
     private void validerPoidsAbattage() {
         String type = choixAbattage.getValue();
