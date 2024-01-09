@@ -39,11 +39,21 @@ public class MenuPrincipaleController {
     @FXML
     private TextField prixKgField;
 
+    @FXML
+    private VBox poidsAbattageSection;
+
+    @FXML
+    private ComboBox<String> choixAbattage;
+
+    @FXML
+    private TextField poidsAbattageField;
+
     public void initialize() {
         // Bind the visibility of sections to the selected choice in ChoixAction
         ajoutSection.visibleProperty().bind(choixAction.valueProperty().isEqualTo("Ajouter"));
         affichageSection.visibleProperty().bind(choixAction.valueProperty().isEqualTo("Afficher"));
         prixSection.visibleProperty().bind(choixAction.valueProperty().isEqualTo("Modifier Prix/kg"));
+        poidsAbattageSection.visibleProperty().bind(choixAction.valueProperty().isEqualTo("Modifier Poids Abattage"));
     }
 
     @FXML
@@ -73,4 +83,14 @@ public class MenuPrincipaleController {
         // Your logic to handle prix/kg modification based on the selected type and entered price
         System.out.println("Type: " + type + ", Prix par kg: " + prixKg);
     }
+
+    @FXML
+    private void validerPoidsAbattage() {
+        String type = choixAbattage.getValue();
+        double poidsAbattage = Double.parseDouble(poidsAbattageField.getText());
+
+        // Your logic to handle validation based on the selected type and entered poids d'abattage
+        System.out.println("Type: " + type + ", Poids d'abattage: " + poidsAbattage);
+    }
+
 }

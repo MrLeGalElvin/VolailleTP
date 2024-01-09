@@ -28,6 +28,7 @@
                             <String fx:value="Ajouter" />
                             <String fx:value="Afficher" />
                             <String fx:value="Modifier Prix/kg" />
+                            <String fx:value="Modifier Poids Abattage" />
                         </FXCollections>
                     </items>
                 </ComboBox>
@@ -80,7 +81,23 @@
                     </items>
                 </ComboBox>
                 <TextField fx:id="prixKgField" promptText="Prix par kg" />
-                <Button text="Modification Prix" onAction="#prixModif" />
+                <Button text="Modifier le Prix" onAction="#prixModif" />
+            </HBox>
+        </VBox>
+
+        <!-- Section Modifier Poids Abattage -->
+        <VBox spacing="10" fx:id="poidsAbattageSection">
+            <HBox spacing="10">
+                <ComboBox fx:id="choixAbattage" promptText="Choix Animal">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Poulet" />
+                            <String fx:value="Canard" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <TextField fx:id="poidsAbattageField" promptText="Poids d'abattage" />
+                <Button text="Modifier le Poids" onAction="#validerPoidsAbattage" />
             </HBox>
         </VBox>
     </VBox>
