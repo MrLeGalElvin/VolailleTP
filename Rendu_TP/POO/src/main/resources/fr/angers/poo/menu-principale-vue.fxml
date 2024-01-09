@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.angers.poo.MenuPrincipaleController">
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10" />
+    </padding>
+
+    <VBox spacing="10" alignment="TOP_CENTER">
+        <Label text="Menu Principal">
+            <font>
+                <Font size="16" />
+            </font>
+        </Label>
+
+        <!-- Section Action -->
+        <VBox spacing="10">
+            <HBox spacing="10">
+                <ComboBox fx:id="choixAction" promptText="Choix Actions">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Ajouter" />
+                            <String fx:value="Afficher" />
+                            <String fx:value="Modifier Prix/kg" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+            </HBox>
+        </VBox>
+
+        <!-- Section Ajout -->
+        <VBox spacing="10" fx:id="ajoutSection">
+            <HBox spacing="10">
+                <ComboBox fx:id="choixAjout" promptText="Choix Animal">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Poulet" />
+                            <String fx:value="Canard" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <TextField fx:id="poidsField" promptText="Poids" />
+                <TextField fx:id="quantiteField" promptText="Quantité" />
+                <Button text="Ajouter Volaille" onAction="#ajouterVolaille" />
+            </HBox>
+        </VBox>
+
+        <!-- Section Affichage -->
+        <VBox spacing="10" fx:id="affichageSection">
+            <HBox spacing="10">
+                <ComboBox fx:id="choixAff" promptText="Choix Animal">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Volaille" />
+                            <String fx:value="Poulet" />
+                            <String fx:value="Canard" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <CheckBox fx:id="enDessousCheckBox" text="en dessous du poids d’abattage" />
+                <Button text="Afficher Volaille" onAction="#afficherVolaille" />
+            </HBox>
+        </VBox>
+
+        <!-- Section Prix/kg -->
+        <VBox spacing="10" fx:id="prixSection">
+            <HBox spacing="10">
+                <ComboBox fx:id="choixPrix" promptText="Choix Animal">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Poulet" />
+                            <String fx:value="Canard" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <TextField fx:id="prixKgField" promptText="Prix par kg" />
+                <Button text="Modification Prix" onAction="#prixModif" />
+            </HBox>
+        </VBox>
+    </VBox>
+</AnchorPane>

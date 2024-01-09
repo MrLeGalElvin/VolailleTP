@@ -1,6 +1,6 @@
-package fr.angers.poo;
+package fr.angers.poo.volaille;
 
-public class ElevageController {
+public class Elevage {
     private static double prixPoulet;
     private static double prixCanard;
 

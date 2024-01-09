@@ -1,9 +1,9 @@
-package fr.angers.poo;
+package fr.angers.poo.volaille;
 
-public class PouletController extends VolailleController {
+public class Poulet extends Volaille {
     private double poidsPoulet = 1;
 
-    PouletController(double p, int i) {
+    Poulet(double p, int i) {
         super(p, i);
     }
 
@@ -17,7 +17,7 @@ public class PouletController extends VolailleController {
 
     @Override
     double prix() {
-        return poids * ElevageController.getPrixPoulet();
+        return poids * Elevage.getPrixPoulet();
     }
 
     @Override

@@ -1,9 +1,10 @@
-package fr.angers.poo;
+package fr.angers.poo.volaille;
 
-public class CanardController extends VolailleController {
+
+public class Canard extends Volaille {
     private double poidsCanard = 1;
 
-    CanardController(double p, int i) {
+    Canard(double p, int i) {
         super(p, i);
     }
 
@@ -17,7 +18,7 @@ public class CanardController extends VolailleController {
 
     @Override
     double prix() {
-        return poids * ElevageController.getPrixCanard();
+        return poids * Elevage.getPrixCanard();
     }
 
     @Override

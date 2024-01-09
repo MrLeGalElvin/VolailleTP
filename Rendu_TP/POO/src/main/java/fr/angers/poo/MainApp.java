@@ -13,28 +13,25 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        showLoginScene(primaryStage);
+        showMenuPrincipale(primaryStage);
     }
 
     public static void main(String[] args) {
         launch(args);
     }
 
-    public static void showLoginScene(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(MainApp.class.getResource("login-vue.fxml")));
+    public static void showMenuPrincipale(Stage primaryStage) throws IOException {
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("menu-principale-vue.fxml"));
+        Parent root = loader.load();
 
         Scene scene = new Scene(root);
-        primaryStage.setTitle("Page de Connexion");
+        primaryStage.setTitle("Menu Principal");
         primaryStage.setScene(scene);
-        primaryStage.show();
-    }
 
-    public static void showCanardScene(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(MainApp.class.getResource("canard-vue.fxml")));
+        // Récupérez le contrôleur de la vue
+        MenuPrincipaleController controller = loader.getController();
+        // Vous pouvez initialiser le contrôleur si nécessaire
 
-        Scene scene = new Scene(root);
-        primaryStage.setTitle("Gestion des Canards");
-        primaryStage.setScene(scene);
         primaryStage.show();
     }
 }

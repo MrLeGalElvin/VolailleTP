@@ -30,7 +30,7 @@ public class LoginController {
         System.out.println("Password: " + password);
 
         try {
-            MainApp.showCanardScene((Stage) loginButton.getScene().getWindow());
+            MainApp.showMenuPrincipale((Stage) loginButton.getScene().getWindow());
         } catch (IOException e) {
             e.printStackTrace();
         }

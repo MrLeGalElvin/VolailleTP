@@ -1,7 +1,6 @@
-package fr.angers.poo;
+package fr.angers.poo.volaille;
 
 import java.io.*;
-import java.util.*;
 
 /** La classe Terminal permet de réaliser ses premiers programmes Java en permettant d'afficher dans la console d'exécution des données de type différents, et en permettant de saisir au clavier des données de type différents.<BR>
  Elle permet aussi de lire et écrire un fichier texte

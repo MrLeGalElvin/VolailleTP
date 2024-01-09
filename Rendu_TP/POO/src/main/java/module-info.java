@@ -14,4 +14,6 @@ module fr.angers.poo {
 
     opens fr.angers.poo to javafx.fxml;
     exports fr.angers.poo;
+    exports fr.angers.poo.volaille;
+    opens fr.angers.poo.volaille to javafx.fxml;
 }

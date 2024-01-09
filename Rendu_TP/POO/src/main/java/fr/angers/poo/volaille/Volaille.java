@@ -1,9 +1,9 @@
-package fr.angers.poo;
+package fr.angers.poo.volaille;
 
-public class VolailleController {
+public class Volaille {
     double poids;
     int identite;
-    VolailleController(double p, int i){
+    Volaille(double p, int i){
         poids = p;
         identite = i;
     }
