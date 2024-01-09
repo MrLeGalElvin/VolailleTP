@@ -1,10 +1,11 @@
 package fr.angers.poo.volaille;
 
 public class Poulet extends Volaille {
-    private double poidsPoulet = 1;
+    private double poidsPoulet = 10;
 
-    public Poulet(double p, int i) {
-        super(p, i);
+    public Poulet(double p) {
+        super(p);
+
     }
 
     public double getPoidsPoulet() {
@@ -23,5 +24,9 @@ public class Poulet extends Volaille {
     @Override
     boolean assezGrosse(double poids) {
         return poids >= poidsPoulet;
+    }
+
+    public String getType() {
+        return "Poulet";
     }
 }

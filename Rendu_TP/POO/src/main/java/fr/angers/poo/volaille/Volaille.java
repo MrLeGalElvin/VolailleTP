@@ -1,11 +1,15 @@
 package fr.angers.poo.volaille;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Volaille {
     double poids;
     int identite;
-    Volaille(double p, int i){
+    private static final AtomicInteger ID_FACTORY = new AtomicInteger();
+    private final int id;
+    Volaille(double p){
+        id = ID_FACTORY.getAndIncrement();
         poids = p;
-        identite = i;
     }
     void changePoids(double np){
         poids = np;
@@ -15,5 +19,22 @@ public class Volaille {
     }
     boolean assezGrosse(double poids){
         return false;
+    }
+
+    public double getPoids() {
+        return poids;
+    }
+
+    public void setPoids(double poids) {
+        this.poids = poids;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+
+    public String getType() {
+        return "Volaille";
     }
 }

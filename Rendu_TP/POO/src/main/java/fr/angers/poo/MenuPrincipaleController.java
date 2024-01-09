@@ -1,12 +1,18 @@
 package fr.angers.poo;
 
-import fr.angers.poo.volaille.Canard;
-import fr.angers.poo.volaille.Elevage;
-import fr.angers.poo.volaille.Poulet;
-import fr.angers.poo.volaille.Volaille;
+import fr.angers.poo.volaille.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.List;
 
 public class MenuPrincipaleController {
 
@@ -52,7 +58,7 @@ public class MenuPrincipaleController {
     @FXML
     private TextField poidsAbattageField;
     private Elevage elevage;
-
+    private ObservableList<Volaille> volailles = FXCollections.observableArrayList();
     public void initialize() {
         // Bind the visibility of sections to the selected choice in ChoixAction
         this.elevage = new Elevage();
@@ -65,28 +71,57 @@ public class MenuPrincipaleController {
 
     @FXML
     private void ajouterVolaille() {
-        String type = choixAjout.getValue();
+        String type = choixAjout.getValue().toString();
+        System.out.println(type);
         double poids = Double.parseDouble(poidsField.getText());
         int quantite = Integer.parseInt(quantiteField.getText());
+        System.out.println(type.equals("Poulet"));
 
-        // Your logic to add volaille here
-        if (type == "Poulet") {
+        if (type.equals("Poulet")) {
             for(int i = 0; i < quantite; ++i) {
-                Poulet volaille = new Poulet(poids, 1);
-                this.elevage.ajouter(volaille);
+                System.out.println(type);
+                this.elevage.addVolaille(new Poulet(poids));
+                this.elevage.ecrire();
             }
         } else {
             for(int i = 0; i < quantite; ++i) {
-                Canard volaille = new Canard(poids, 1);
-                this.elevage.ajouter(volaille);
+                this.elevage.addVolaille(new Canard(poids));
             }
         }
     }
 
     @FXML
     private void afficherVolaille() {
+        TableView<Volaille> tableView = new TableView<>();
+        tableView.setItems(volailles);
         String type = choixAff.getValue();
         boolean enDessous = enDessousCheckBox.isSelected();
+
+        List<Volaille> volaillesx = elevage.getVolaille();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/volaille/elevage.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Liste");
+        try {
+            Parent root = loader.load();
+            ElevageController elevageController = loader.getController();
+            elevageController.setVolailles(volaillesx);
+            if (type.equals("Canard")&& enDessous==true){
+                elevageController.affichageCanard();
+            }else if (type.equals("Canard")&& enDessous==false){
+                elevageController.affichageCanardAbattre();
+            }else if (type.equals("Poulet")&& enDessous==true){
+                elevageController.affichagePoulet();
+            }else if (type.equals("Poulet")&& enDessous==false){
+                elevageController.affichagePouletAbattre();
+            } else{
+                elevageController.affichageBasique();
+            }
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -94,7 +129,7 @@ public class MenuPrincipaleController {
     private void prixModif() {
         String type = choixPrix.getValue();
         double prixKg = Double.parseDouble(prixKgField.getText());
-        if (type == "Poulet") {
+        if (type.equals("Poulet")) {
             this.elevage.setPrixPoulet(prixKg);
         } else {
             this.elevage.setPrixCanard(prixKg);
@@ -105,7 +140,7 @@ public class MenuPrincipaleController {
     private void validerPoidsAbattage() {
         String type = choixAbattage.getValue();
         double poidsAbattage = Double.parseDouble(poidsAbattageField.getText());
-        if (type == "Poulet") {
+        if (type.equals("Poulet")) {
             this.elevage.setPoidsPoulet(poidsAbattage);
         } else {
             this.elevage.setPrixCanard(poidsAbattage);

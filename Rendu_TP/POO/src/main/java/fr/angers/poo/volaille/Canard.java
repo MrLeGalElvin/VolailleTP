@@ -2,10 +2,10 @@ package fr.angers.poo.volaille;
 
 
 public class Canard extends Volaille {
-    private double poidsCanard = 1;
+    private double poidsCanard = 10;
 
-    public Canard(double p, int i) {
-        super(p, i);
+    public Canard(double p) {
+        super(p);
     }
 
     public double getPoidsCanard() {
@@ -19,6 +19,11 @@ public class Canard extends Volaille {
     @Override
     double prix() {
         return poids * Elevage.getPrixCanard();
+    }
+
+    @Override
+    public String getType() {
+        return "Canard";
     }
 
     @Override

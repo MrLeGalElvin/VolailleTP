@@ -1,11 +1,19 @@
 package fr.angers.poo.volaille;
 
-public class Elevage {
-    private static double prixPoulet;
-    private static double prixCanard;
-    private static double poidsPoulet;
-    private static double poidsCanard;
+import java.util.ArrayList;
+import java.util.List;
 
+public class Elevage {
+    private static double prixPoulet=12;
+    private static double prixCanard=12;
+    private static double poidsPoulet=10;
+    private static double poidsCanard=10;
+    public ArrayList<Volaille> tab;
+    public Elevage() {
+        // Initialisez votre liste dans le constructeur
+        this.tab = new ArrayList<>();
+    }
+    public ArrayList<Volaille> liste_abattre;
     public static double getPoidsPoulet() {
         return poidsPoulet;
     }
@@ -22,17 +30,16 @@ public class Elevage {
         Elevage.poidsCanard = poidsCanard;
     }
 
-    Volaille[] tab = new Volaille[100];
     //Compteur nombre de bête
     int nbBetes = 0;
     /**
      * Ajout une volaille dans le tableau et incrémente le compteur de 1
      * @param v : la volaille à ajouter
      */
-    public void ajouter(Volaille v){
-        tab[nbBetes] = v;
+    /*public void ajouter(Volaille v){
+        tab.set(nbBetes, v);
         nbBetes++;
-    }
+    }*/
     /**
      * Recherche dans la tableau la volaille à l'id indiqué
      * @param id : le numero de la volaille (corresponds a l'ordre dans lequels les volailles ont été ajoutés)
@@ -40,8 +47,8 @@ public class Elevage {
     Volaille rechercher(int id){
         for
         (int i=0; i<nbBetes; i++){
-            if (tab[i].identite == id){
-                return tab[i];
+            if (tab.get(i).identite == id){
+                return tab.get(i);
             }
         }
         return null
@@ -64,13 +71,13 @@ public class Elevage {
         for
         (int i=0; i<nbBetes; i++){
             double poids;
-            if (tab[i] instanceof Canard){
+            if (tab.get(i) instanceof Canard){
                 poids = this.poidsCanard;
             } else {
                 poids = this.poidsPoulet;
             }
-            if (tab[i].assezGrosse(poids)){
-                res = res+tab[i].prix();
+            if (tab.get(i).assezGrosse(poids)){
+                res = res+ tab.get(i).prix();
             }
         }
         return res;
@@ -85,15 +92,15 @@ public class Elevage {
         int i = 0;
         while (i < nbBetes){
             double poids;
-            if (tab[i] instanceof Canard){
+            if (tab.get(i) instanceof Canard){
                 poids = this.poidsCanard;
             } else {
                 poids = this.poidsPoulet;
             }
-            if (tab[i].assezGrosse(poids)){
-                res[nb] = tab[i];
+            if (tab.get(i).assezGrosse(poids)){
+                res[nb] = tab.get(i);
                 nb++;
-                tab[i]=tab[nbBetes-1];
+                tab.set(i, tab.get(nbBetes - 1));
                 nbBetes--;
             }else
             {
@@ -108,9 +115,9 @@ public class Elevage {
      */
     public void ecrire(){
         for (int i=0; i<nbBetes; i++){
-            Terminal.ecrireStringln(" " + tab[i].identite + " " +
-                    tab[i].poids + " " +
-                    tab[i].prix());
+            Terminal.ecrireStringln(" " + tab.get(i).identite + " " +
+                    tab.get(i).poids + " " +
+                    tab.get(i).prix());
         }
     }
     /**
@@ -134,5 +141,11 @@ public class Elevage {
 
     public void setPrixCanard(double prixC) {
         prixCanard = prixC;
+    }
+    public void addVolaille(Volaille volaille) {
+        tab.add(volaille);
+    }
+    public List<Volaille> getVolaille() {
+        return tab;
     }
 }
