@@ -1,5 +1,6 @@
 package fr.angers.poo;
 
+import fr.angers.poo.volaille.Elevage;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

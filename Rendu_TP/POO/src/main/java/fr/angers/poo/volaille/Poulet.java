@@ -3,7 +3,7 @@ package fr.angers.poo.volaille;
 public class Poulet extends Volaille {
     private double poidsPoulet = 1;
 
-    Poulet(double p, int i) {
+    public Poulet(double p, int i) {
         super(p, i);
     }
 

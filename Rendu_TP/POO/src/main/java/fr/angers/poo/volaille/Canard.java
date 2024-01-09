@@ -4,7 +4,7 @@ package fr.angers.poo.volaille;
 public class Canard extends Volaille {
     private double poidsCanard = 1;
 
-    Canard(double p, int i) {
+    public Canard(double p, int i) {
         super(p, i);
     }
 

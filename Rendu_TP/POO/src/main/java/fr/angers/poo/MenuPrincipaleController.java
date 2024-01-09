@@ -1,5 +1,9 @@
 package fr.angers.poo;
 
+import fr.angers.poo.volaille.Canard;
+import fr.angers.poo.volaille.Elevage;
+import fr.angers.poo.volaille.Poulet;
+import fr.angers.poo.volaille.Volaille;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
@@ -47,9 +51,12 @@ public class MenuPrincipaleController {
 
     @FXML
     private TextField poidsAbattageField;
+    private Elevage elevage;
 
     public void initialize() {
         // Bind the visibility of sections to the selected choice in ChoixAction
+        this.elevage = new Elevage();
+
         ajoutSection.visibleProperty().bind(choixAction.valueProperty().isEqualTo("Ajouter"));
         affichageSection.visibleProperty().bind(choixAction.valueProperty().isEqualTo("Afficher"));
         prixSection.visibleProperty().bind(choixAction.valueProperty().isEqualTo("Modifier Prix/kg"));
@@ -63,7 +70,17 @@ public class MenuPrincipaleController {
         int quantite = Integer.parseInt(quantiteField.getText());
 
         // Your logic to add volaille here
-        System.out.println("Type: " + type + ", Poids: " + poids + ", Quantité: " + quantite);
+        if (type == "Poulet") {
+            for(int i = 0; i < quantite; ++i) {
+                Poulet volaille = new Poulet(poids, 1);
+                this.elevage.ajouter(volaille);
+            }
+        } else {
+            for(int i = 0; i < quantite; ++i) {
+                Canard volaille = new Canard(poids, 1);
+                this.elevage.ajouter(volaille);
+            }
+        }
     }
 
     @FXML
@@ -71,8 +88,6 @@ public class MenuPrincipaleController {
         String type = choixAff.getValue();
         boolean enDessous = enDessousCheckBox.isSelected();
 
-        // Your logic to display volaille based on the selected type and checkbox
-        System.out.println("Type: " + type + ", En dessous: " + enDessous);
     }
 
     @FXML
@@ -82,6 +97,11 @@ public class MenuPrincipaleController {
 
         // Your logic to handle prix/kg modification based on the selected type and entered price
         System.out.println("Type: " + type + ", Prix par kg: " + prixKg);
+        if (type == "Poulet") {
+            this.elevage.setPrixPoulet(prixKg);
+        } else {
+            this.elevage.setPrixCanard(prixKg);
+        }
     }
 
     @FXML
